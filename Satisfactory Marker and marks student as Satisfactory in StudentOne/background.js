@@ -1,0 +1,1 @@
+// background.js - intentionally left blank

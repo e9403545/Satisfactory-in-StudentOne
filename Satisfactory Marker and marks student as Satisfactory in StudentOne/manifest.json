@@ -1,0 +1,43 @@
+
+{
+  "manifest_version": 2,
+  "name": "Rubric Auto Selector",
+  "version": "1.0",
+  "description": "Automatically selects Level 0 on all rubric items.",
+"permissions": [
+    "activeTab",
+    "tabs",
+    "https://vicuni.t1cloud.com/*"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon.png"
+    }
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "icons": {
+    "48": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://vucollaborate.vu.edu.au/d2l/le/activities/iterator/*"],
+      "js": ["content.js"]
+    },
+    {
+      "matches": ["https://vicuni.t1cloud.com/T1Default/CiAnywhere/Web/VICUNI/StudentStudies/StudentEngagementMyEnquiry*"],
+      "js": ["studentSearch.js"]
+    },
+    {
+      "matches": ["https://vicuni.t1cloud.com/T1Default/CiAnywhere/Web/VICUNI/StudentStudies/StudentEngagementMyMaintenance*"],
+      "js": ["unitSearch.js"]
+    },
+    {
+      "matches": ["https://vicuni.t1cloud.com/*AvailabilityProfileMyMaintenance*"],
+      "js": ["availabilityProfile.js"]
+    }
+  ]
+}
